@@ -1,39 +1,78 @@
-# dev-env-setup
+# 🛠️ Development Environment Setup Guide (macOS)
+This guide documents how I set up a development environment on a Mac. It includes tools, productivity utilities, programming environments, and visual enhancements to streamline your workflow.
 
-Links for the tutorial I eatched:
-- https://www.youtube.com/watch?v=GK7zLYAXdDs
-- https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa2xreFBlclFFTGxrRzRMcTd2RjhiZ3prRXVEd3xBQ3Jtc0tuT1RXMkY4S21CZEM5WnFwTjRsTElwcnJlWGZpM2JMV29aRDAwb3lBaV93U2lMRlVvT2RuU2NmVF82eHdrdkQ4RmVlYVh0aHVRdzJ5cUZIUjg2N0dXZzZYRHh1ekZ5SVk4ZUZlWnFSblBpNTF4ZVFPVQ&q=https%3A%2F%2Fgithub.com%2FCodingGarden%2Fmac-setup&v=GK7zLYAXdDs
-- https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbVVmRml5TDZSSU55UE4wZXlvY1BDdXdIMjc4Z3xBQ3Jtc0trWnpIVnlXOWlOWUI3NmlsT0dBUF83YUxiOVR3VldubndWd211UnBmYTEtRklsYlQ1RzFiNDZWdzdWaTlibzA5Q085ZFQydUhwdGdHMHRRNVpmc0ZpczAzcXVXRTJWSEVVNEYwMkZVYUpEbnFHbFVXbw&q=https%3A%2F%2Fgithub.com%2FCodingGarden%2Fvscode-settings&v=GK7zLYAXdDs
+## 📑 Table of Contents
+
+- [Homebrew](#homebrew)
+- [Tab Management](#tab-management)
+- [Switching Between Running Applications](#switching-between-running-applications)
+- [Hidden Bar](#hidden-bar)
+- [Computer Stats](#computer-stats)
+- [Itscal](#itscal)
+- [Pomodoro](#pomodoro)
+- [Node](#node)
+- [Web Browsers](#web-browsers)
+- [iTerm2](#iterm2)
+- [VS Code](#vs-code)
+
+---
 ## Homebrew
- its like an extension that allows us intall other apps also known as the missing package manager for macOs (or Linux). Follow the steps: https://brew.sh/
- run `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` in your terminal. Need sudo access to modify system files, so it needs you to enter your password
- try running `brew` in the terminal to test if the installation worked
- > cask are desktop applications and formulae are like cli tools
-> might need to think about `brew tap homebrew/cask-versions` to get access to other casks  that are not listed by default
 
-To install many apps in brew in one go, you can create an `apps.txt` file and add a name of a brew cask that you want to install, one on each line, e.g., 
-- `discord`
-- `spotify`
-- `figma`
-- `vlc`. Watching videoa
-- `keka`: replacement for archive tools. its handy with zip files and archive files
-- `kap`: easily create screen recordings
-- `keycastr`: shows the keys presses on the screen when presenting
-- `item2`: Beeter terminal that the default mac terminal emulator
-- `visual-studio-code`: my coding GUI
+[Homebrew](https://brew.sh/) is a package manager for macOS (or Linux) that makes it easy to install and manage software tools and applications. It’s often called “the missing package manager for macOS.”
 
-> Then we want to run brew install for every line in that file:
-> `xargs brew install < apps.txt`
-> You could also add other applications like docker
+### 🔧 Installation
 
-cli-app.txt
-- `ffmpeg`: convert and to chop sections of videos
-- `imagemagick`: convert image types from the command line
-- `wget`:
-- `telnet`
-- `tldr`: common examples of how to use many different cli tools
+To install Homebrew:
 
-> run `xargs brew install < cli-apps.txt`
+1. Open your terminal.
+2. Run the following command:
+   ```zsh
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+3. You may be prompted to enter your system password for sudo/administrative access to be able to modify system files.
+4. To verify the installation, run:
+   ```zsh
+   brew
+  you should see a list of available commands if it was installed correctly.
+
+> Note: 
+> Homebrew uses formulae for CLI tools and casks for desktop applications.
+>
+> Tip:
+> You might need to run:
+>  ```zsh
+>    brew tap homebrew/cask-versions
+>  ```
+>  to get access to other casks  that are not listed by default.
+
+
+### Installing Multiple Applications with Brew
+You can automate the installation of multiple applications by listing them in a text file and running a single command.
+
+1. GUI/Desktop Applications. These are the base apps that I typiclaly use on every machine:
+  - `discord`
+  - `spotify`
+  - `figma`
+  - `vlc`: For watching videos
+  - `keka`: replacement for archive tools. Its handy with zip files and rar files Archive tool, etc
+  - `kap`: Screen recording tool
+  - `keycastr`: Shows key presses on screen (useful for demos)
+  - `item2`: Better terminal that the default mac terminal emulator
+  - `visual-studio-code`: My favourite code editor
+
+To install all apps (brew casks) included in `apps.txt` at once, run:
+```zsh
+xargs brew install < apps.txt
+```
+2. CLI Tools. These are the base formula that I typically have installed:
+  - `ffmpeg`: Video conversion and trimming
+  - `imagemagick`: Image format conversion from the command line
+  - `wget`: File retrieval over HTTP/FTP
+  - `telnet`: Network utility
+  - `tldr`: Simplified man pages with usage examples of many different cli tools
+To install all cli apps (brew formula) included in `cli-apps.txt` at once, run:
+```zsh
+xargs brew install < cli-apps.txt
+```
 
 ## Tab management
 - Use the app called rectangle: https://rectangleapp.com/
@@ -244,3 +283,8 @@ I normally run the regular version. Just so you know, there is an insiders versi
 ## Keys and ssh
 ## colima
 ## awscli
+
+Links for the tutorial I watched:
+- https://www.youtube.com/watch?v=GK7zLYAXdDs
+- https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa2xreFBlclFFTGxrRzRMcTd2RjhiZ3prRXVEd3xBQ3Jtc0tuT1RXMkY4S21CZEM5WnFwTjRsTElwcnJlWGZpM2JMV29aRDAwb3lBaV93U2lMRlVvT2RuU2NmVF82eHdrdkQ4RmVlYVh0aHVRdzJ5cUZIUjg2N0dXZzZYRHh1ekZ5SVk4ZUZlWnFSblBpNTF4ZVFPVQ&q=https%3A%2F%2Fgithub.com%2FCodingGarden%2Fmac-setup&v=GK7zLYAXdDs
+- https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbVVmRml5TDZSSU55UE4wZXlvY1BDdXdIMjc4Z3xBQ3Jtc0trWnpIVnlXOWlOWUI3NmlsT0dBUF83YUxiOVR3VldubndWd211UnBmYTEtRklsYlQ1RzFiNDZWdzdWaTlibzA5Q085ZFQydUhwdGdHMHRRNVpmc0ZpczAzcXVXRTJWSEVVNEYwMkZVYUpEbnFHbFVXbw&q=https%3A%2F%2Fgithub.com%2FCodingGarden%2Fvscode-settings&v=GK7zLYAXdDs
