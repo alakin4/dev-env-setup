@@ -7,10 +7,10 @@ This guide documents how I set up a development environment on a Mac. It include
 - [Tab Management](#tab-management)
 - [Switching Between Running Applications](#switching-between-running-applications)
 - [Hidden Bar](#hidden-bar)
-- [Computer Stats](#computer-stats)
+- [Computer Stats](#computer-stats-at-a-glance)
 - [Itscal](#itscal)
 - [Pomodoro](#pomodoro)
-- [Node](#node)
+- [Node](#node-js)
 - [Web Browsers](#web-browsers)
 - [iTerm2](#iterm2)
 - [VS Code](#vs-code)
@@ -122,7 +122,7 @@ brew install --cask itsycal
 ```
 Click the icon in the menu bar to view your upcoming events and navigate dates quickly.
 
-## Time Out
+## Pomodoro
 [Time Out](https://www.dejal.com/timeout/) reminds you to take regular breaks to reduce screen fatigue and boost productivity.
 ### Installation
 ```shell
@@ -166,28 +166,35 @@ Running the above command installs these:
  > Installing these globally (`-g`) allows you to use them from any terminal session, regardless of your current project directory.
 
 
-## WEb browser
-1. Brave
-2. Google chrome
-3. Firfox developer edition
-   - `brew search firefox` to see options then you can do `brew install`
-  
-### settings
-- Open previously open tabs before closing
-- Alwasys ask where to save files
-- disable all most of the default settings you might not need, e.g., recommened stories
-- New tab is a blanck page
-- can set up your default search engine
-- May disable search engine suggestions so that you only see things you already visisted
-- May disabkle shortcuts to certain search engines that you don't use. e.g., !g <search key words> to search on google engine via brave
-- For security, you can tuurn off "ask to save password" if you want as well as tuen off "remember search and form history"
-### Extenstions
-- Tablis. by tabliss.io for displaying nice greeting when you open a tab
-- OneTab. In one click, it can take all the open tabs and throws them in one tab. Then you could also share the list of those tabs as a unique url
-- Dark reader. for automatic dark theme
-- uBlock Origin. for ad blocling
-- Privacy Badger. Blocks tracking scripts
-- Decentraleyes. Cached libtaries that are loaded from CDNs
+## Web Browsers
+For development and personal browsing, it's to have these browsers installed:
+1. **Brave**. A privacy-focused browser with built-in ad and tracker blocking. Search the internet for this but you can also install it using brew.
+2. **Google Chrome**. Widely supported browser with extensive DevTools. Search the internet to get the installation.
+3. **Firefox Developer Edition**. Optimized for developers with debugging features and CSS grid visualization.
+   > To find available Firefox versions:
+   > ```shell
+   > brew search firefox
+   > ```
+   > Then install the version you prefer, e.g.,:
+   > ```shell
+   > brew install --cask firefox-developer-edition
+   > ```
+   
+### Suggested Settings (Applies to almost all browsers)
+These settings can improve both productivity and privacy:
+   - Reopen previously open tabs on launch
+   - Always ask where to save files
+   - Set new tab page to blank
+   - Customize your default search engine. I tend to set this to brave.
+   - Optionally disable shortcuts to specific search engines (e.g., !g for Google in Brave)
+   - For security, you can tuurn off "Ask to save passwords" and "Remember search and form history”
+
+### Browser Extensions (Optional)
+These are the extensions that I have heard about from other people, e.g., [CJ from Coding Garden](https://coding.garden/):
+- [Tablis](https://tabliss.io/). Beautiful new tab page with customizable greetings and background images
+- OneTab. Collapse all your open tabs into a single list. Share the tab list via a unique URL.
+- uBlock Origin. Powerful and efficient ad blocker. You might need to manually turn this off for some sites.
+- Privacy Badger. Automatically blocks invisible trackers and scripts.
 
 # iterm2
 - set up oh-my-zsh.
