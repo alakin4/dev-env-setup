@@ -271,14 +271,262 @@ Host github.com
      - Name it (e.g., MacBook Pro), paste with ⌘ + V, and save
    
 
-## vscode
+## VSCode
+VS code is my favourite code editor. Having it set up right solves several issues, such as recognizing imports, using the correct python version.
+
+### Installation
+You can install VS code using brew (see above) or by visiting the [website](https://code.visualstudio.com/)
+
+### Extensions
+1. General
+     - `Even Better TOML`. TOML language support (syntax highlightling, folding, etc) to work with toml files, e.g., `pyproject.toml`
+3. Autoformatter
+     - `Ruff`. This is the extension for the python Ruff Linter. I have used `black` before but I recently switched to `Ruff`
+4. Python specific
+      - `Python` extension from Microsoft. 
+      - `Python Debugger` from Microsoft
+      - 
+6. Javascript
+
+Here is a base set of recommended python expentions I use for my projects:
+```json
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff",
+    "ms-toolsai.jupyter",
+    "GitHub.copilot",
+    "tamasfe.even-better-toml",
+    // Allows you abut more flexibility in how you define your comments !,?, TODO
+    "aaron-bond.better-comments",
+    // Can help you view your workflows
+    "github.vscode-github-actions",
+    // For making diagrams
+    "bierner.markdown-mermaid",
+    // For API testing
+    "postman.postman-for-vscode",
+    // Can help you view the contents of the database
+    "alexcvzz.vscode-sqlite",
+    // Allows tyou to open any oflder or repository inside a docker container
+    "ms-vscode-remote.remote-containers"
+  ]
+}
+```
+
+I also have other extensions, mostly for webdev
+
+```json
+{
+  "recommendations": [
+    "quicktype.quicktype",                       // Paste JSON as Code
+    "mikestead.dotenv",                          // .env syntax highlighting
+    "formulahendry.auto-rename-tag",             // Auto rename paired HTML/XML tags
+    "naumovs.color-highlight",                   // Highlight CSS colors
+    "dbaeumer.vscode-eslint",                    // ESLint integration
+    "esbenp.prettier-vscode",                    // Prettier formatter
+    "vscode-icons-team.vscode-icons",            // File icons
+    "streetsidesoftware.code-spell-checker",     // Spell checker
+    "csstools.postcss",                          // PostCSS Intellisense
+    "yoavbls.pretty-ts-errors",                  // Pretty TypeScript Errors
+    "rangav.vscode-thunder-client",              // Thunder Client for API requests
+    "bradlc.vscode-tailwindcss",                 // Tailwind CSS Intellisense
+    "dsznajder.es7-react-js-snippets",           // React snippets
+    "andys8.react-css-modules",                  // CSS Modules support
+    "styled-components.vscode-styled-components",// Styled components highlighting
+    "svelte.svelte-vscode",                      // Svelte syntax and support
+    "bierner.markdown-mermaid",                  // Mermaid preview for Markdown
+    "kisstkondoros.vscode-gutter-preview"        // Show gutter previews for images
+  ]
+}
+```
+
+Other geneneral extensions
+
+```json
+{
+  "recommendations": [
+    "quicktype.quicktype",                       // Paste JSON as Code
+    "mikestead.dotenv",                          // .env syntax highlighting
+    "vscode-icons-team.vscode-icons",            // File icons
+    "streetsidesoftware.code-spell-checker",     // Spell checker
+    "csstools.postcss",                          // PostCSS Intellisense
+    "yoavbls.pretty-ts-errors",                  // Pretty TypeScript Errors
+    "rangav.vscode-thunder-client",              // Thunder Client for API requests
+    "bradlc.vscode-tailwindcss",                 // Tailwind CSS Intellisense
+    "dsznajder.es7-react-js-snippets",           // React snippets
+    "andys8.react-css-modules",                  // CSS Modules support
+    "styled-components.vscode-styled-components",// Styled components highlighting
+    "svelte.svelte-vscode",                      // Svelte syntax and support
+    "bierner.markdown-mermaid",                  // Mermaid preview for Markdown
+    "kisstkondoros.vscode-gutter-preview"        // Show gutter previews for images
+  ]
+}
+```
+
+To install multiple extensions in one go via the command line, you can
+    - download the `vs-estensions.txt` file
+    - run `cat vs-extensions.txt | xargs -L1 code --install-extension`
+    
+### VS Code Settings
+VS Code has 3 levels of settings:
+
+- Folder setting. These are typically project specific and are shared with other developers. They are normmaly stored under `.vscode/settings.json`. My typical project specific settings look are as follows
+  ```json
+  {
+  // Editor settings
+  "editor.defaultFormatter": "charliermarsh.ruff",
+  //Python settings
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "none"
+  },
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.extraPaths": ["${workspaceFolder}/src"],
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.terminal.activateEnvironment": true,
+  // Test settings
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.cwd": "${workspaceFolder}/tests",
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "rewrap.autoWrap.enabled": true,
+  "rewrap.reformat": true,
+  "rewrap.wrappingColumn": 88
+   }
+  ```
+  > One missing setting to add could be `"python.defaultInterpreterPath": ${workspaceFolder}/.venv/bin/python`
+- Workspace Settings. These are bassically referring to your VS code window or workspace. I do not use these that much but an example you can have is the following
+  ```json
+  {
+  "": [
+  {
+  "name": "my_project",
+  "path": "my_project",
+  }
+  ],
+  "settings": {
+  "workbench.colorCustomizations": {
+  "titleBar.activeBackground": #FFC0CB
+  },
+  }
+  }
+  ```
+  > Here I set the titleBar of the workspace with the pink color.
+- User Settings. I use these to modify how I like my VS code to look, independept of specific projects
+  ```json
+  {
+  "files.exclude": {
+    ".git": true,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  // Git settings
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.showActionButton": {
+    "commit": false,
+    "publish": false,
+    "sync": false
+  },
+  // Github Copilot settings
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "scminput": false,
+    "yaml": false
+  },
+  // Explorer settings [how you naviate files]
+  "explorer.excludeGitIgnore": true,
+  "explorer.autoReveal": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  // Workbench settings
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorCustomizations": { "titleBar.activeBackground": "#10794f" },
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.settings.editor": "json",
+  "workbench.layoutControl.enabled": false,
+  "workbench.sideBar.location": "right",
+  // Editor settings
+  "ruff.importStrategy": "useBundled",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.fixAll": "always"
+  },
+  "editor.tabCompletion": "on",
+  "window.zoomLevel": 1,
+  "editor.minimap.maxColumn": 80,
+  "html.format.wrapLineLength": 80,
+  "python.analysis.autoImportCompletions": true,
+  "settingsSync.ignoredSettings": [],
+  "editor.rulers": [
+    { "column": 80, "color": "#5e7233", "lineStyle": "dotted" },
+    { "column": 88, "color": "#3d0e7f" }
+  ],
+  // Python settings
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  // Javascript settings
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "rewrap.autoWrap.enabled": true,
+  "rewrap.reformat": true,
+  "rewrap.wrappingColumn": 88,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "C_Cpp.default.compilerPath": "",
+  "editor.largeFileOptimizations": false,
+  "diffEditor.maxComputationTime": 0,
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  }
+   }
+  ```
+
+> Workspace settings override User settings and Folder settings override workspace settings
+> I normally login-in with my Github accounts and have my user settings synced accross my devices. 
+
+## Python setup
+* For dependency management, I use the following
+   - poetry. install using `brew install poetry`
+   - uv. install using `brew install uv`
+   - pip
+
+> See these detailed articles: [Article 1](https://cloudnativeengineer.substack.com/p/uv-python-package-manager) and [Article 2](https://www.loopwerk.io/articles/2024/python-poetry-vs-uv/)
+
+* Autoformatter. For Python, I mostly use [Ruff](https://docs.astral.sh/ruff/formatter/). For my pythoin projecgts, In normally have this as a dev dependency
 Settings
+* project specifi vscode settings. These are stored in `.vscode/settings.json`. The extenstions are found in  `.vscode/extensions.json`
+
+### Creating a python project
+mkdir my_project
+cd my_project
+uv init --no-workspace
+
 - Font: Anonymous pro
 - Theme
 - Extenstions
-    - copy a list of extensions-names
-    - put them in a txt file `vs-estensions.txt`
-    - run `cat vs-extensions.txt | xargs -L1 code --install-extension`
     - FontSize ShortCuts: cmd + , cmd =, cmd -
     - vscode-icons
     - ESLint
@@ -295,8 +543,7 @@ Settings
     
 - Create a directory on my computer where I put all my code projects, I use `Projects`
 - running `code .` or `code file_name` should be working for you.
-- See my `settings.json`.
-- Copy that file and do `>Open user Settings(JSON)`. it will open the `settings.json` where you paste and save.
+
 - "workbench.editor.ShowTabs": "none". Pressing `ctrl + tab` shows you the open files and you and navigate the one you like
 - "editor.snippetSuggestions": "top"
 - "editor.minimap.enabled": "false"
