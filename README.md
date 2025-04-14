@@ -74,47 +74,97 @@ To install all cli apps (brew formula) included in `cli-apps.txt` at once, run:
 xargs brew install < cli-apps.txt
 ```
 
-## Tab management
-- Use the app called rectangle: https://rectangleapp.com/
-- When done, you should be able to see an icon at the top in the menu bar
-- Example shortcuts: `cmd+ option + left/right/up/down`, `ctrl + cmd + left` for top left corner
+## Tab Management
+For managing and snapping windows into place using keyboard shortcuts, install [Rectangle](https://rectangleapp.com/).
 
-## Switching between running applicaitons
-- being able to see a full window preview when I do `tab+left arrow/ right arrow`
-- https://alt-tab-macos.netlify.app/
-- `brew install --cask alt-tab`
+### Installation
 
-## Hidden bar
-- lets you hide things that you do not see all the time
-- https://formulae.brew.sh/cask/hiddenbar
-- `brew install --cask hiddenbar`
+Download it from the website or run:
+```shell
+brew install --cask rectangle
+```
+Once installed, you’ll see the Rectangle icon in your macOS menu bar.
+### Example Shortcuts
+   - `⌘ + ⌥ + ←/→/↑/↓` — move window to half/quarter of screen
+   - `⌃ + ⌘ + ←`— snap to top-left corner (You can customize shortcuts in the Rectangle preferences)
 
-## Stats
-- See the stats of my laptop at a glance
-- for example, network traffic, how much ram, cpu, harddrive space
-- You can also add multiple time zones. To disable the system times, open up system settings and search for clocks, could tune it into an analog clock icon.
-- https://mac-stats.com/
+## Switching Between Running Applications
+I use [Alt Tab](https://alt-tab-macos.netlify.app/) to get a full window preview (similar to Windows' Alt+Tab)
+### Installation
+```shell
+brew install --cask alt-tab
+```
+After installation, you can use: `Tab + ← / →` to preview open windows in a grid-like display
+Customize shortcut keys and layout in AltTab’s settings via the menu bar icon.
 
-## Itscal
-- nice little carlendar. Maybe
-- https://www.mowglii.com/itsycal/, https://formulae.brew.sh/cask/itsycal#default
-- brew install --cask itsycal
+## Hidden Bar
+[Hidden Bar](https://formulae.brew.sh/cask/hiddenbar) helps declutter your Mac’s menu bar by hiding icons you don’t need to see all the time.
+### Installation 
+```shell
+brew install --cask hiddenbar
+```
+Once installed, you can hide menu bar items by dragging them to the left of the divider icon.
+
+
+## Computer Stats at a Glance
+Use [Stats](https://mac-stats.com/) to view key metrics like CPU usage, memory, network activity, and more directly from your menu bar.
+
+Example features include:
+- See network traffic, RAM, CPU, and disk usage
+- Add multiple time zones to your menu bar
+  >  Tip: To disable system clocks and just show Stats’ timezones, open System Settings, search for "Clocks", and turn off the default menu bar clock.
+
+## Itsycal
+[Itsycal](https://www.mowglii.com/itsycal/) is a lightweight menu bar calendar that integrates with your system calendar.
+### Installation
+```shell
+brew install --cask itsycal
+```
+Click the icon in the menu bar to view your upcoming events and navigate dates quickly.
 
 ## Time Out
-- taking breaks
-- https://www.dejal.com/timeout/
-- https://formulae.brew.sh/cask/time-out#default
-- brew install --cask time-out
+[Time Out](https://www.dejal.com/timeout/) reminds you to take regular breaks to reduce screen fatigue and boost productivity.
+### Installation
+```shell
+brew install --cask time-out
+```
+You can customize break durations, intervals, and notifications in the app settings.
 
-# Nodejs
-- runtime for running javascrip on the back end
-- Go to the nvm github repo and pic and instal script. it automatically updates your zshrc file
-- can do `nvm install 20` to get the lated minor verisons of node. npm is set up already. check with `node -v`
-- Glocal command from npm:
-    - `npm i -g lite-server http-server license gitconfig`
-      > lite-server for auto respgreshing, lite-server for quitly starting up an http, license automaticlaly generates open source licenses in repos
-      > gitconfig auto generates git configs based on they type of project that you have
-    - intalling these globally means that I have access to all these tools wherever I am working from 
+## Node.js
+[Node.js](https://nodejs.org/) is a runtime environment that allows you to run JavaScript outside the browser—commonly used for backend development. I use **NVM (Node Version Manager)** to install and manage different versions of Node.js.
+
+### Installing Node.js via NVM
+1. Go to the [NVM GitHub repository](https://github.com/nvm-sh/nvm) and follow the installation instructions:
+   ```shell
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+   ```
+2. The script automatically adds NVM setup code to your ~/.zshrc (or ~/.bashrc if using bash).
+3. Reload your terminal or run:
+   ```shell
+   source ~/.zshrc
+   ```
+4. For example, I can install the latest Node.js version (e.g., version 20.x):
+    ```shell
+    nvm install 20
+    ```
+5. Confirm the installation:
+    ```shell
+   node -v
+    ```
+### Installing Global CLI Tools
+I use these global tools from NPM that can be used across projects:
+
+   ```shell
+   npm i -g lite-server http-server license gitconfig
+   ```
+Running the above command installs these:
+- `lite-server`: Lightweight development server with live reload
+- `http-server`: Quickly serves static files from a folder
+- `license`: Auto-generates open-source license files
+- `gitconfig`: Generates `.gitconfig` files based on the type of project. I prefer to do this when startign the project.
+
+ > Installing these globally (`-g`) allows you to use them from any terminal session, regardless of your current project directory.
+
 
 ## WEb browser
 1. Brave
