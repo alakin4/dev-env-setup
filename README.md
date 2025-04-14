@@ -2,7 +2,7 @@
 This guide documents how I set up a development environment on a Mac. It includes tools, productivity utilities, programming environments, and visual enhancements to streamline your workflow.
 
 ## 📑 Table of Contents
-
+- [Cloning this repo](#cloning-this-repository)
 - [Homebrew](#homebrew)
 - [Tab Management](#tab-management)
 - [Switching Between Running Applications](#switching-between-running-applications)
@@ -12,10 +12,18 @@ This guide documents how I set up a development environment on a Mac. It include
 - [Pomodoro](#pomodoro)
 - [Node](#node-js)
 - [Web Browsers](#web-browsers)
-- [iTerm2](#iterm2)
+- [iTerm2](#iTerm-2-and-shell-customization)
 - [VS Code](#vs-code)
 
 ---
+## Cloning this repository
+To clone this repository to may local machine and run the `config.sh` script:
+```sh
+git clone git@github.com:alakin4/dev-env-setup.git ~/
+cd ~/dev-env-setup
+./config.sh
+```
+
 ## Homebrew
 
 [Homebrew](https://brew.sh/) is a package manager for macOS (or Linux) that makes it easy to install and manage software tools and applications. It’s often called “the missing package manager for macOS.”
@@ -196,61 +204,72 @@ These are the extensions that I have heard about from other people, e.g., [CJ fr
 - uBlock Origin. Powerful and efficient ad blocker. You might need to manually turn this off for some sites.
 - Privacy Badger. Automatically blocks invisible trackers and scripts.
 
-# iterm2
-- set up oh-my-zsh.
-    - zsh is the actual shell that we are using normally on mac as default. you can do `echo $SHELL`
-    - If you want to use bash, you may use oh-my-bash
-    - go to to ohmyzsh.sh, click install and run the install commad in your terminal
-    - this already improves the degault iterm with some colors, etc.
-    - this by default enables using the up arrow to search through previous commands
-- the `.zshrc` file
-    - this is where the zsh configurations are. this file is usually in the home directory, you can do `nano ~/.zshrc` to view it.
-- in setting, choose the minimal theme
-- Go to keys, key mappings and choose Keymappings, then at the bottom, choose "Natrual text editing" and also remove the existing keymaps.
-    - by default, if I have a command in the terminal using a shortcut `option+arrow keys` would move over words and these do not work by default
-- Under settings genralcheck, reuse previous session's directory. So if I open up another tab, I want it to use the previous directory as the previous tab
-- download and installanonymous pro font
-- configuring Oh-my zsh. see my `.zshrc` file:
-    - CASE_SENSITIVE="true". If it auto completinng
-    - ENABLE_CORRECTION="true". If I make a mistake
-    - plugins=(git). It shows me what brank I am on in a given repo, it also gives you some aliases
-    - set up my default editor to "nano" or "nvim"
-    - Yo
-- Aliases: `alias < below>`
-    - l="ls" # List files  in current directory
-    - ll="ls -al" # List all files in current directory in long list format
-    - o="open ." # Open the current directory in finder
-    - gaa="git add ."
-    - gcm="git commit -m"
-    - gpsh="git push"
-    - gss="git status -s"
+## iTerm2 and Shell Customization
+[iTerm2](https://iterm2.com/) is a powerful alternative to the default macOS Terminal. Pairing it with `zsh` and `oh-my-zsh` improves appearance and command-line experience significantly.
+### Setting up Oh My Zsh
 
-  ## Git SSH key
-  - can go to Github>authenticstion>connect with SSH>Generte new SSH key
-  - this allows us to clone and push to repos that we have access to
-  - ssh-keygen -t ed25519 -C "youremailongithub@example.com". Sacve it to the default location
-  - Enter pass phrase
-  - Add SSH key to the ssh-agent
-      - eval "$(ssh-agent -s)"
-      - Setup automatically loading keys to the ssh-agent store like MacOS keychain
-          - `open ~/.ssh/config` or  `touch ~/.ssh/config`
-          - `nano ~/.ssh/config`. ctrl y, ctrl x
-        ```sh
-        Host github.com
-          AddKeysToAgent yes
-          UseKeychain yes
-          IdentityFile ~/.ssh/id_ed25519
-        ```
-      - pbcopy < ~/.ssh/id_ed25519.pub # copies the contents of id_ed25519.pub to my clipboard
-      - Go to your github settings ans add that key
-          - under settings, SSH and GPG keys,
-          - add new ssh key
-          - give it a name like the computer it  belongs to
-          - cmd + v to pase the copied key
+macOS now uses `zsh` as the default shell. You can confirm this by running:
+```shell
+echo $SHELL
+```
+To enhance zsh, install [Oh My Zsh](https://ohmyz.sh/):
+> If you want to use bash, you may use [oh-my-bash](https://github.com/ohmybash/oh-my-bash)
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+> Successfully running the above command already improves the degault iterm with some colors, etc. By default enables using the up arrow to search through previous commands
 
-  - git clone `dotfiles` to the home folder of my local machine. use the ssh tab suggested command
-  - cd to that folder
-  - run `./config.sh` to run script to update your .szhrc and other config # check ourt w3jc's git hub
+### iTerm2 Preferences from thr GUI
+I have some prefecrence that I normally do from the GUI
+   - Theme: Select the minimal theme under Appearance for cleaner visuals.
+   - Natural Text Editing: Go to Preferences → Keys → Key Bindings, click "Presets..." at the bottom → choose Natural Text Editing. Also remove existing default mappings to avoid conflicts.
+     > By default, if I have a command in the terminal using a shortcut `option+arrow keys` would move over words and these do not work by default so turning on Natural Text Editing helps with that
+   - Directory Reuse: Under General → Working Directory, select "Reuse previous session's directory"
+   - Font: Install and apply Anonymous Pro (or any other preferred developer-friendly font). You can actually set this in the `.zshrc` file
+
+### The `.zshrc` file
+The .zshrc file holds your shell configuration. You can view or edit it with:
+```shell 
+    nano ~/.zshrc
+```
+If it does not exist, you will have to create it ar the root by doing
+```shell 
+    touch ~/.zshrc
+```
+Copy and paste contents of the `.zshrc` in this repository file into the `.zshrc` on the machine.
+
+### Setting Up Git with SSH
+Connecting to GitHub via SSH allows you to securely push/pull code. follow these steps:
+1.  Generate an SSH Key. This allows us to clone and push to repos that we have access to
+   - Go to Github>authenticstion>connect with SSH>Generte new SSH key
+   - Go to your terminal and do:
+     ```sh
+     ssh-keygen -t ed25519 -C "youremailongithub@example.com"
+     ```
+     Save to the default location and Add a secure passphrase when prompted
+2. Start and Configure ssh-agent. Setup automatically loading keys to the ssh-agent store like MacOS keychain
+```sh
+eval "$(ssh-agent -s)"
+touch ~/.ssh/config
+nano ~/.ssh/config
+```
+Paste the following configuration:
+```sh
+Host github.com
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/id_ed25519
+```
+3. Add SSH Key to GitHub
+  Copies the contents of `id_ed25519.pub` to the clipboard
+   ```sh
+   pbcopy < ~/.ssh/id_ed25519.pub
+   ```
+  Then:
+     - Go to GitHub → Settings → SSH and GPG keys
+     - Click "New SSH Key"
+     - Name it (e.g., MacBook Pro), paste with ⌘ + V, and save
+   
 
 ## vscode
 Settings
