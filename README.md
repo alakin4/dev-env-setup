@@ -16,6 +16,7 @@ This guide documents how I set up a MacOS machine for development. It includes t
 - [Python](#python-setup)
 - [VS Code](#vs-code)
 - [Other tools I have installed](#other-tools-i-have-installed)
+- [References and Tutorials](#references-and-tutorials)
 
 ---
 ## Cloning this repository
@@ -554,6 +555,7 @@ VS Code has 3 levels of settings:
 | Rename variable                           | `F2`                              | Changes all occurrences of a variable                  |
 | Search in editor                          | `> New Search Editor`             | View search results in a file-like view                |
 
+Key: ⌘ -> command, ⌥ -> option
 ---
 
 #### Features & Best Practices
@@ -576,9 +578,9 @@ VS Code has 3 levels of settings:
 
 
 > Finally:
-> Try `MD IO`, `Operator Mono`, or any coding-friendly monospaced font
-> Set up different profiles for different projects (e.g., Python, JavaScript, writing)
-> To identify slow extensions: search online for *"VS Code extension profiling tools"*
+> - Try `MD IO`, `Operator Mono`, or any coding-friendly monospaced font
+> - Set up different profiles for different projects (e.g., Python, JavaScript, writing)
+> - To identify slow extensions: search online for *"VS Code extension profiling tools"*
 
 
 ## Other tools I have installed
@@ -649,7 +651,11 @@ cargo --version
 
 > 🔧 Use cargo install <tool> to install CLI tools written in Rust (e.g., cargo install exa, cargo install ripgrep).
 
-Links for the tutorial I watched:
-- https://www.youtube.com/watch?v=GK7zLYAXdDs
-- https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa2xreFBlclFFTGxrRzRMcTd2RjhiZ3prRXVEd3xBQ3Jtc0tuT1RXMkY4S21CZEM5WnFwTjRsTElwcnJlWGZpM2JMV29aRDAwb3lBaV93U2lMRlVvT2RuU2NmVF82eHdrdkQ4RmVlYVh0aHVRdzJ5cUZIUjg2N0dXZzZYRHh1ekZ5SVk4ZUZlWnFSblBpNTF4ZVFPVQ&q=https%3A%2F%2Fgithub.com%2FCodingGarden%2Fmac-setup&v=GK7zLYAXdDs
-- https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbVVmRml5TDZSSU55UE4wZXlvY1BDdXdIMjc4Z3xBQ3Jtc0trWnpIVnlXOWlOWUI3NmlsT0dBUF83YUxiOVR3VldubndWd211UnBmYTEtRklsYlQ1RzFiNDZWdzdWaTlibzA5Q085ZFQydUhwdGdHMHRRNVpmc0ZpczAzcXVXRTJWSEVVNEYwMkZVYUpEbnFHbFVXbw&q=https%3A%2F%2Fgithub.com%2FCodingGarden%2Fvscode-settings&v=GK7zLYAXdDs
+## 📚 References and Tutorials
+
+These resources were incredibly helpful in guiding my setup process:
+
+- [YouTube: Mac Developer Environment Setup (Coding Garden)](https://www.youtube.com/watch?v=GK7zLYAXdDs)
+- [GitHub: mac-setup Configuration Files](https://github.com/CodingGarden/mac-setup)
+- [GitHub: VS Code Settings by Coding Garden](https://github.com/CodingGarden/vscode-settings)
+- [YouTube: Ultimate VS Code Setup (ArjanCodes)](https://www.youtube.com/watch?v=PwGKhvqJCQM)
