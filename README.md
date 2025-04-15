@@ -1,5 +1,5 @@
 # 🛠️ Development Environment Setup Guide (macOS)
-This guide documents how I set up a development environment on a Mac. It includes tools, productivity utilities, programming environments, and visual enhancements to streamline your workflow.
+This guide documents how I set up a MacOS machine for development. It includes tools, productivity utilities, programming environments, and visual enhancements to streamline your workflow.
 
 ## 📑 Table of Contents
 - [Cloning this repo](#cloning-this-repository)
@@ -13,11 +13,14 @@ This guide documents how I set up a development environment on a Mac. It include
 - [Node](#node-js)
 - [Web Browsers](#web-browsers)
 - [iTerm2](#iTerm-2-and-shell-customization)
+- [Python](#python-setup)
 - [VS Code](#vs-code)
+- [Other tools I have installed](#other-tools-i-have-installed)
 
 ---
 ## Cloning this repository
-To clone this repository to may local machine and run the `config.sh` script:
+
+To clone this repository to my local machine and run the `config.sh` script:
 ```sh
 git clone git@github.com:alakin4/dev-env-setup.git ~/
 cd ~/dev-env-setup
@@ -40,18 +43,16 @@ To install Homebrew:
 4. To verify the installation, run:
    ```zsh
    brew
-  you should see a list of available commands if it was installed correctly.
+  You should see a list of available commands if it was installed correctly.
 
 > Note: 
 > Homebrew uses formulae for CLI tools and casks for desktop applications.
 >
 > Tip:
-> You might need to run:
+> To get access to other casks that are not listed by default, you might need to run:
 >  ```zsh
 >    brew tap homebrew/cask-versions
 >  ```
->  to get access to other casks  that are not listed by default.
-
 
 ### Installing Multiple Applications with Brew
 You can automate the installation of multiple applications by listing them in a text file and running a single command.
@@ -102,8 +103,9 @@ I use [Alt Tab](https://alt-tab-macos.netlify.app/) to get a full window preview
 ```shell
 brew install --cask alt-tab
 ```
-After installation, you can use: `Tab + ← / →` to preview open windows in a grid-like display
-Customize shortcut keys and layout in AltTab’s settings via the menu bar icon.
+After installation, you can:
+   - use `Tab + ← / →` to preview open windows in a grid-like display.
+   - Customize shortcut keys and layout in AltTab’s settings via the menu bar icon.
 
 ## Hidden Bar
 [Hidden Bar](https://formulae.brew.sh/cask/hiddenbar) helps declutter your Mac’s menu bar by hiding icons you don’t need to see all the time.
@@ -113,14 +115,14 @@ brew install --cask hiddenbar
 ```
 Once installed, you can hide menu bar items by dragging them to the left of the divider icon.
 
-
 ## Computer Stats at a Glance
 Use [Stats](https://mac-stats.com/) to view key metrics like CPU usage, memory, network activity, and more directly from your menu bar.
 
 Example features include:
 - See network traffic, RAM, CPU, and disk usage
 - Add multiple time zones to your menu bar
-  >  Tip: To disable system clocks and just show Stats’ timezones, open System Settings, search for "Clocks", and turn off the default menu bar clock.
+  >  Tip:
+  >  To disable system clocks and just show Stats’ timezones, open System Settings, search for "Clocks", and turn off the default menu bar clock.
 
 ## Itsycal
 [Itsycal](https://www.mowglii.com/itsycal/) is a lightweight menu bar calendar that integrates with your system calendar.
@@ -146,7 +148,7 @@ You can customize break durations, intervals, and notifications in the app setti
    ```shell
    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
    ```
-2. The script automatically adds NVM setup code to your ~/.zshrc (or ~/.bashrc if using bash).
+2. The script automatically adds NVM setup code to your `~/.zshrc` (or `~/.bashrc` if using bash).
 3. Reload your terminal or run:
    ```shell
    source ~/.zshrc
@@ -175,10 +177,10 @@ Running the above command installs these:
 
 
 ## Web Browsers
-For development and personal browsing, it's to have these browsers installed:
+For development and personal browsing, I have these browsers installed:
 1. **Brave**. A privacy-focused browser with built-in ad and tracker blocking. Search the internet for this but you can also install it using brew.
-2. **Google Chrome**. Widely supported browser with extensive DevTools. Search the internet to get the installation.
-3. **Firefox Developer Edition**. Optimized for developers with debugging features and CSS grid visualization.
+2. **Google Chrome**. Widely supported browser with extensive DevTools. [Search the internet](https://www.google.com/chrome/dr/download/) to get the installation.
+3. **Firefox Developer Edition**. Firefox version optimized for developers with debugging features and CSS grid visualization.
    > To find available Firefox versions:
    > ```shell
    > brew search firefox
@@ -206,8 +208,8 @@ These are the extensions that I have heard about from other people, e.g., [CJ fr
 
 ## iTerm2 and Shell Customization
 [iTerm2](https://iterm2.com/) is a powerful alternative to the default macOS Terminal. Pairing it with `zsh` and `oh-my-zsh` improves appearance and command-line experience significantly.
-### Setting up Oh My Zsh
 
+### Setting up Oh My Zsh
 macOS now uses `zsh` as the default shell. You can confirm this by running:
 ```shell
 echo $SHELL
@@ -219,28 +221,28 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 > Successfully running the above command already improves the degault iterm with some colors, etc. By default enables using the up arrow to search through previous commands
 
-### iTerm2 Preferences from thr GUI
+### iTerm2 Preferences from the GUI
 I have some prefecrence that I normally do from the GUI
    - Theme: Select the minimal theme under Appearance for cleaner visuals.
    - Natural Text Editing: Go to Preferences → Keys → Key Bindings, click "Presets..." at the bottom → choose Natural Text Editing. Also remove existing default mappings to avoid conflicts.
      > By default, if I have a command in the terminal using a shortcut `option+arrow keys` would move over words and these do not work by default so turning on Natural Text Editing helps with that
    - Directory Reuse: Under General → Working Directory, select "Reuse previous session's directory"
-   - Font: Install and apply Anonymous Pro (or any other preferred developer-friendly font). You can actually set this in the `.zshrc` file
+   - Font: Install and apply [Anonymous Pro](https://fonts.google.com/specimen/Anonymous+Pro) (or any other preferred developer-friendly font). You can actually set this in the `.zshrc` file
 
 ### The `.zshrc` file
 The .zshrc file holds your shell configuration. You can view or edit it with:
 ```shell 
     nano ~/.zshrc
 ```
-If it does not exist, you will have to create it ar the root by doing
+If it does not exist, you will have to create it at the root by doing
 ```shell 
     touch ~/.zshrc
 ```
-Copy and paste contents of the `.zshrc` in this repository file into the `.zshrc` on the machine.
+Copy and paste contents of the `.zshrc` in this repository file into the `.zshrc` on the machine. Remomber to do `source ~/.zshrc` to have the settings loaded.
 
-### Setting Up Git with SSH
+### Setting up Git with SSH
 Connecting to GitHub via SSH allows you to securely push/pull code. follow these steps:
-1.  Generate an SSH Key. This allows us to clone and push to repos that we have access to
+1.  Generate an SSH Key. This allows us to clone and push to repos that we have access to.
    - Go to Github>authenticstion>connect with SSH>Generte new SSH key
    - Go to your terminal and do:
      ```sh
@@ -248,20 +250,20 @@ Connecting to GitHub via SSH allows you to securely push/pull code. follow these
      ```
      Save to the default location and Add a secure passphrase when prompted
 2. Start and Configure ssh-agent. Setup automatically loading keys to the ssh-agent store like MacOS keychain
-```sh
-eval "$(ssh-agent -s)"
-touch ~/.ssh/config
-nano ~/.ssh/config
-```
-Paste the following configuration:
-```sh
-Host github.com
- AddKeysToAgent yes
- UseKeychain yes
- IdentityFile ~/.ssh/id_ed25519
-```
+   ```sh
+   eval "$(ssh-agent -s)"
+   touch ~/.ssh/config
+   nano ~/.ssh/config
+   ```
+   Paste the following configuration:
+   ```sh
+   Host github.com
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/id_ed25519
+   ```
 3. Add SSH Key to GitHub
-  Copies the contents of `id_ed25519.pub` to the clipboard
+   Copies the contents of `id_ed25519.pub` to the clipboard
    ```sh
    pbcopy < ~/.ssh/id_ed25519.pub
    ```
@@ -269,31 +271,55 @@ Host github.com
      - Go to GitHub → Settings → SSH and GPG keys
      - Click "New SSH Key"
      - Name it (e.g., MacBook Pro), paste with ⌘ + V, and save
-   
 
-## VSCode
-VS code is my favourite code editor. Having it set up right solves several issues, such as recognizing imports, using the correct python version.
+## Python setup
+This section outlines how to configure your Python environment for development, including dependency management, formatting, and tools.
 
 ### Installation
-You can install VS code using brew (see above) or by visiting the [website](https://code.visualstudio.com/)
+I also install Python on macOS is via Homebrew:
+   ```sh
+   brew install python
+   ```
+This will install the latest stable version of Python along with pip (Python's package manager).
+To confirm installation:
+   ```sh
+   python3 --version
+   pip3 --version
+   ```
+You can also download Python directly from the [official website](https://www.python.org/).
+
+### 📦 Dependency Management
+
+I use a combination of tools to manage dependencies across projects:
+   1. [Poetry](https://python-poetry.org/). Poetry handles dependency resolution and virtual environments for each project.
+   2. [uv](https://docs.astral.sh/uv/guides/install-python/): A faster drop-in replacement for pip, pip-tools, and virtualenv (used under the hood by Ruff, too)
+
+      ```shell
+      brew install poetry
+      brew install uv
+      ```
+   3. [pip](https://packaging.python.org/en/latest/): Python’s built-in package installer.
+
+   > See these helpful articles: [Article 1](https://cloudnativeengineer.substack.com/p/uv-python-package-manager) and [Article 2](https://www.loopwerk.io/articles/2024/python-poetry-vs-uv/)
+   
+### Autoformatter. 
+I use [Ruff](https://docs.astral.sh/ruff/formatter/) for linting and auto-formatting. It’s fast, modern, and supports most of what you’d get from Flake8, isort, and Black in one tool.
+   
+## VS Code
+VS code is my favourite code editor. Having it set up right solves several issues, such as recognizing imports, and using the correct python version.
+
+### Installation
+You can install VS code using brew (see [Homebrew section](#homebrew)) or by visiting the [website](https://code.visualstudio.com/)
 
 ### Extensions
-1. General
-     - `Even Better TOML`. TOML language support (syntax highlightling, folding, etc) to work with toml files, e.g., `pyproject.toml`
-3. Autoformatter
-     - `Ruff`. This is the extension for the python Ruff Linter. I have used `black` before but I recently switched to `Ruff`
-4. Python specific
-      - `Python` extension from Microsoft. 
-      - `Python Debugger` from Microsoft
-      - 
-6. Javascript
-
 Here is a base set of recommended python expentions I use for my projects:
 ```json
 {
   "recommendations": [
     "ms-python.python",
+    "ms-python.debugpy",
     "ms-python.vscode-pylance",
+    // Python autoformatter
     "charliermarsh.ruff",
     "ms-toolsai.jupyter",
     "GitHub.copilot",
@@ -304,8 +330,6 @@ Here is a base set of recommended python expentions I use for my projects:
     "github.vscode-github-actions",
     // For making diagrams
     "bierner.markdown-mermaid",
-    // For API testing
-    "postman.postman-for-vscode",
     // Can help you view the contents of the database
     "alexcvzz.vscode-sqlite",
     // Allows tyou to open any oflder or repository inside a docker container
@@ -319,24 +343,17 @@ I also have other extensions, mostly for webdev
 ```json
 {
   "recommendations": [
-    "quicktype.quicktype",                       // Paste JSON as Code
-    "mikestead.dotenv",                          // .env syntax highlighting
     "formulahendry.auto-rename-tag",             // Auto rename paired HTML/XML tags
     "naumovs.color-highlight",                   // Highlight CSS colors
     "dbaeumer.vscode-eslint",                    // ESLint integration
     "esbenp.prettier-vscode",                    // Prettier formatter
-    "vscode-icons-team.vscode-icons",            // File icons
-    "streetsidesoftware.code-spell-checker",     // Spell checker
     "csstools.postcss",                          // PostCSS Intellisense
     "yoavbls.pretty-ts-errors",                  // Pretty TypeScript Errors
-    "rangav.vscode-thunder-client",              // Thunder Client for API requests
     "bradlc.vscode-tailwindcss",                 // Tailwind CSS Intellisense
     "dsznajder.es7-react-js-snippets",           // React snippets
     "andys8.react-css-modules",                  // CSS Modules support
     "styled-components.vscode-styled-components",// Styled components highlighting
     "svelte.svelte-vscode",                      // Svelte syntax and support
-    "bierner.markdown-mermaid",                  // Mermaid preview for Markdown
-    "kisstkondoros.vscode-gutter-preview"        // Show gutter previews for images
   ]
 }
 ```
@@ -350,14 +367,8 @@ Other geneneral extensions
     "mikestead.dotenv",                          // .env syntax highlighting
     "vscode-icons-team.vscode-icons",            // File icons
     "streetsidesoftware.code-spell-checker",     // Spell checker
-    "csstools.postcss",                          // PostCSS Intellisense
-    "yoavbls.pretty-ts-errors",                  // Pretty TypeScript Errors
+    "postman.postman-for-vscode",                // For API testing
     "rangav.vscode-thunder-client",              // Thunder Client for API requests
-    "bradlc.vscode-tailwindcss",                 // Tailwind CSS Intellisense
-    "dsznajder.es7-react-js-snippets",           // React snippets
-    "andys8.react-css-modules",                  // CSS Modules support
-    "styled-components.vscode-styled-components",// Styled components highlighting
-    "svelte.svelte-vscode",                      // Svelte syntax and support
     "bierner.markdown-mermaid",                  // Mermaid preview for Markdown
     "kisstkondoros.vscode-gutter-preview"        // Show gutter previews for images
   ]
@@ -365,13 +376,18 @@ Other geneneral extensions
 ```
 
 To install multiple extensions in one go via the command line, you can
-    - download the `vs-estensions.txt` file
-    - run `cat vs-extensions.txt | xargs -L1 code --install-extension`
+    - download the `vs-python-extensions.txt`, `vs-json-extensions.txt`, and `vs-general-extensions.txt` files
+    - run 
+       ```shell
+       cat vs-python-extensions.txt | xargs -L1 code --install-extension
+       cat vs-json-extensions.txt | xargs -L1 code --install-extension
+       cat vs-general-extensions.txt | xargs -L1 code --install-extension
+       ```
     
 ### VS Code Settings
 VS Code has 3 levels of settings:
 
-- Folder setting. These are typically project specific and are shared with other developers. They are normmaly stored under `.vscode/settings.json`. My typical project specific settings look are as follows
+- Folder setting. These are typically project specific and are shared with other developers. They are normmaly stored under `<project-name>.vscode/settings.json`. My typical project specific settings look are as follows
   ```json
   {
   // Editor settings
@@ -396,23 +412,26 @@ VS Code has 3 levels of settings:
    }
   ```
   > One missing setting to add could be `"python.defaultInterpreterPath": ${workspaceFolder}/.venv/bin/python`
-- Workspace Settings. These are bassically referring to your VS code window or workspace. I do not use these that much but an example you can have is the following
+  > These are stored in `.vscode/settings.json`. The extenstions are found in  `.vscode/extensions.json`
+
+- Workspace settings. These are bassically referring to the VS code window or workspace. I do not use these that much but an example json you can have is the following
   ```json
   {
   "": [
-  {
-  "name": "my_project",
-  "path": "my_project",
-  }
+     {
+     "name": "my_project",
+     "path": "my_project",
+     }
   ],
   "settings": {
-  "workbench.colorCustomizations": {
-  "titleBar.activeBackground": #FFC0CB
-  },
-  }
+     "workbench.colorCustomizations": {
+        "titleBar.activeBackground": #FFC0CB
+        },
+     }
   }
   ```
-  > Here I set the titleBar of the workspace with the pink color.
+  > Here, I set the `titleBar` of the workspace with the pink color.
+
 - User Settings. I use these to modify how I like my VS code to look, independept of specific projects
   ```json
   {
@@ -452,6 +471,7 @@ VS Code has 3 levels of settings:
   "workbench.colorCustomizations": { "titleBar.activeBackground": "#10794f" },
   "workbench.editor.enablePreview": false,
   "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.showTabs": "none", // Pressing `ctrl + tab` shows you the open files and you and navigate the one you like
   "workbench.settings.editor": "json",
   "workbench.layoutControl.enabled": false,
   "workbench.sideBar.location": "right",
@@ -467,6 +487,9 @@ VS Code has 3 levels of settings:
   "editor.tabCompletion": "on",
   "window.zoomLevel": 1,
   "editor.minimap.maxColumn": 80,
+  "editor.snippetSuggestions": "top",
+  "editor.minimap.enabled": "false",
+  "editor.linkedEditing": "true",
   "html.format.wrapLineLength": 80,
   "python.analysis.autoImportCompletions": true,
   "settingsSync.ignoredSettings": [],
@@ -499,113 +522,132 @@ VS Code has 3 levels of settings:
   "editor.largeFileOptimizations": false,
   "diffEditor.maxComputationTime": 0,
   "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+       "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+     }
   }
-   }
   ```
 
 > Workspace settings override User settings and Folder settings override workspace settings
 > I normally login-in with my Github accounts and have my user settings synced accross my devices. 
+----
+### 💡 Pro VS Code Tips
 
-## Python setup
-* For dependency management, I use the following
-   - poetry. install using `brew install poetry`
-   - uv. install using `brew install uv`
-   - pip
 
-> See these detailed articles: [Article 1](https://cloudnativeengineer.substack.com/p/uv-python-package-manager) and [Article 2](https://www.loopwerk.io/articles/2024/python-poetry-vs-uv/)
+#### Keyboard Shortcuts Cheat Sheet
 
-* Autoformatter. For Python, I mostly use [Ruff](https://docs.astral.sh/ruff/formatter/). For my pythoin projecgts, In normally have this as a dev dependency
-Settings
-* project specifi vscode settings. These are stored in `.vscode/settings.json`. The extenstions are found in  `.vscode/extensions.json`
+| Action                                     | Shortcut                          | Notes                                                  |
+|-------------------------------------------|-----------------------------------|--------------------------------------------------------|
+| Open file by name                         | `⌘ + P`                           | Quick navigation to files                              |
+| Jump to previous cursor location          | `Ctrl + -`                        | Useful for retracing edits                             |
+| Symbol search                             | `#<symbol>` in search             | Fuzzy search for variables/functions                   |
+| Cmd-click on function/var                 | `⌘ + click`                       | Jump to definition                                     |
+| Select entire line                        | `⌘ + L`                           | Tap multiple times to expand selection                 |
+| Jump to start/end of line                 | `⌘ + Shift + ←/→`                 | Press twice for wrapped lines                          |
+| Expand selection by scope                 | `⌘ + Shift + P > Expand Selection`| View all scope options                                 |
+| Move line up/down                         | `⌥ + ↑/↓`                         | Shift entire line                                      |
+| Duplicate line                            | `⇧ + ⌥ + ↑/↓` or `⌘ + ⇧ + D`      | Clone current line                                     |
+| Select all matching selections            | `⌘ + ⇧ + L`                       | Multi-cursor editing across similar lines              |
+| Open command palette                      | `⌘ + ⇧ + P`                       | Run any command                                        |
+| Open Extensions tab                       | `⌘ + ⇧ + X`                       | Manage your extensions                                 |
+| Open Version Control (Git) tab            | `⌘ + ⇧ + G`                       | Built-in Git UI                                        |
+| Toggle sidebar                            | `⌘ + ⌥ + B`                       | Show/hide file explorer and panels                     |
+| Rename variable                           | `F2`                              | Changes all occurrences of a variable                  |
+| Search in editor                          | `> New Search Editor`             | View search results in a file-like view                |
 
-### Creating a python project
-mkdir my_project
-cd my_project
-uv init --no-workspace
+---
 
-- Font: Anonymous pro
-- Theme
-- Extenstions
-    - FontSize ShortCuts: cmd + , cmd =, cmd -
-    - vscode-icons
-    - ESLint
-    - Prettier. You can also haev prettierrc files in specific projects
-    - Paste JSON a Code. >pase Json as code, give he paste a top level name and enter
-    - Code spell checker. `cmd + .`
-    - PostCSS Intellisense and highlighting
-    - Pretty TypeScrip Errors
-    - Thunder Client: make http requests inside  VSCode, instead of postman `cmd+shift+r` to open up thunder client
-    - Tailwind CSS Intellisense
-    - React: ES7 + React/Redux/React-Native snippets, CSS to JSS, CSS in JS, vscode-styled-components
-    - Svelte for VS code
-    - Markdown mermaid Preview
-    
-- Create a directory on my computer where I put all my code projects, I use `Projects`
-- running `code .` or `code file_name` should be working for you.
+#### Features & Best Practices
 
-- "workbench.editor.ShowTabs": "none". Pressing `ctrl + tab` shows you the open files and you and navigate the one you like
-- "editor.snippetSuggestions": "top"
-- "editor.minimap.enabled": "false"
-- "editor.linkedEditing": "true"
+- **Sticky Headers**: Keeps function or class name pinned at the top when scrolling deep code blocks.
+- **Timeline View**: Recover unsaved or overwritten files, even outside of Git commits.
+- **File Navigation**: You don’t have to click through files—navigate by recent edits or symbol search instead.
+---
 
-### some pro tips
-I normally run the regular version. Just so you know, there is an insiders version. I will also think about syncing.
+### other useful extensions but I dont usethem often
 
-- Folder based applications like svelte:
-- can also think about turning tabs off and split screen.
-- cmd + p to open up a file
-- Pro Tips:
-  - Instead of jumping through your application file by file, start thinking about jumping through your application  interms of where your edits are. `Ctrl + -`
-  - In the vscode search bar, you could use ´#´ to do a symbol (variables, function or fuzzy search. e.g., #get_this
-  - cmd + click then maybe ctrl + -
-  - Being able to move select and expand your cursor:
-      -  select by line: cmd + L. This can also be clicked several times
-      -  Jump by begining and end of line: `cmd + shift + arrow`. If wrapped, you can tap arrow twice
-      -  slect by scope. can do command pallete `>expand s` to see all the options
-      -  move a line up and down: `option + up/down key`
-      -  duplication of line: `shift+ option + up/down key`. Can also do `cmd + shift + d`
-      -  Putting cursors on every singgle line: select all the lines, then  `cmd + shift+ l`
-  - Side bars (memorise the shortcuts for the ones your use most)
-      - files on the right for more space.
-      - cmd + shift + p: to see the command pallete e.g., `> change case` after highlihtinhg a variable. `>unique` to see using count os items
-      - cmd + shift + x: extensions
-      - cmd + shift + g: version control. Think about using the version control gui if you wish
-      - cmd + option + b: side bar
-      - cmd + l after hihlihting a variable in java script. You mightneef to set this command up
-  - vscode, it has your back. For example if you accidentally save over something, and close the tab and say you are in between git commits, the timelinewould help you to roll it back
-  - vs code is an electron application
-  - Extensions:
-      - github pull request
-      - extension to hide things?
-      - can hide the mini-bar if you wish.
-      - Better comments. In the User/settings.json, You can extend better comments `"better-comments.tags": [{"backgroundColor": "transparent"}, {"tag": "//", "underline": false}]` etc.
-      - Auto rename Tag. chnages the starting and ending tag especially for html
-      - File utils. `>delete`, `>remname`, `>move`, `>theme`
-      - Sort json object
-      - SQLite viewer. light weight gui in vscode
-      - Code Spell checker. might constantly add new words to the dictionary
-      - Apc customize UI++? hide things that you might not normally hide, instead of using a custom vscode injector using a websocket for realoding. This has hot reload. update the User/settings.json
-      - NO NO: Import Cost. Show you the size of your imports. NO NO, it slows down your vs code
+| Extension                     | Purpose                                                                 |
+|------------------------------|-------------------------------------------------------------------------|
+| GitHub Pull Requests         | Manage PRs without leaving VS Code                                     |
+| Auto Rename Tag              | Automatically rename paired HTML/XML tags                              |
+| File Utils                   | Quick file rename, delete, move, etc.                                  |
+| Sort JSON Objects            | Keep JSON tidy and organized                                           |
+| SQLite Viewer                | Lightweight embedded SQLite browser                                    |
+| Apc Customize UI++           | Hide interface elements, customize layout via settings.json            |
+
+
+> Finally:
+> Try `MD IO`, `Operator Mono`, or any coding-friendly monospaced font
+> Set up different profiles for different projects (e.g., Python, JavaScript, writing)
+> To identify slow extensions: search online for *"VS Code extension profiling tools"*
+
+
+## Other tools I have installed
+Here are a few additional tools that I frequently use for development and infrastructure management:
+
+### Neovim
+
+[Neovim](https://neovim.io/) is a modern, extensible terminal-based text editor. It’s a faster, more powerful alternative to Vim with Lua support for plugin development.
+
+Install via Homebrew:
+
+```bash
+brew install neovim
+```
+
+If `nvim` is added as an alias to `.zshrc`, You can launch it with:
+```bash
+nvim
+```
+
+### Colima
+[Colima](https://github.com/abiosoft/colima) (short for Container on Lima) is a fast and lightweight container runtime for macOS, designed as an alternative to Docker Desktop.
    
-  - To to figure out if your extension is slowing down your vscode:
-      - google proces time of an extention. probably there are tools
-  - Theme? maybe the SyntaxFM, Cobalt2 Theme official, Level Up, SyntaxTasty
-  - Font (monospace and coding fonts):  MD IO, Operator Mono
-  - `>new search editor` something  to have your search in an actual edirot
-  - Sticky headers. If you are inside of a function, it locks it at the top. can be handy for long classes and functions or nestes code (html, css) with deep indetentation
-  - Activity bar, normally on the side
-  - think about profiles.
-      - say one for python, one javascript, work
+   ```bash
+   brew install colima
+   ```
    
-  - Renaming variables. `F2` or right click chnage all occurances. Use `shift+enter` to preview
-    
-## Python:pip, uv, poetry, 
+Then you can start it with:
+   ```bash
+   colima start
+   ```
 
-## neovim
-## Keys and ssh
-## colima
-## awscli
+Colima can be used with Docker CLI out of the box:
+   ```bash
+   docker ps
+   ```
+> In case docker is not installed with colima, you may need to independently do `brew install docker`
+
+### AWS CLI
+The AWS Command Line Interface (CLI) is a tool to manage AWS services from the terminal.
+
+Install via Homebrew:
+   ```bash
+   brew install awscli
+   ```
+After installing, configure it with your credentials:
+   ```bash
+   aws configure
+   ```
+You’ll be prompted to enter your AWS Access Key ID, Secret Access Key, Region, and output format.
+
+### Rust
+[Rust](https://www.rust-lang.org/) is a systems programming language known for speed, safety, and great tooling.
+
+Install via the official installer:
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+After installation:
+```sh
+source $HOME/.cargo/env
+```
+Verify Rust and its package manager cargo:
+```sh
+rustc --version
+cargo --version
+```
+
+> 🔧 Use cargo install <tool> to install CLI tools written in Rust (e.g., cargo install exa, cargo install ripgrep).
 
 Links for the tutorial I watched:
 - https://www.youtube.com/watch?v=GK7zLYAXdDs
