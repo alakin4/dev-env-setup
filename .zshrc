@@ -204,6 +204,8 @@ alias gaa="git add ."
 alias gcm="git commit -m"
 alias gpsh="git push"
 alias gss="git status -s"
+alias python='python3'
+alias pip='pip3'
 
 
 # Shell integrations
