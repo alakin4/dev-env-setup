@@ -23,10 +23,14 @@ This guide documents how I set up a MacOS machine for development. It includes t
 
 To clone this repository to my local machine and run the `config.sh` script:
 ```sh
-git clone git@github.com:alakin4/dev-env-setup.git ~/
+git clone git@github.com:alakin4/dev-env-setup.git
 cd ~/dev-env-setup
 ./config.sh
 ```
+
+> Note
+> If you are working with a new machine, you might get and xcode-select error that no developer tools were found. Then, you would be prompted to download and install them.
+> Also, remember to set up your git to be able to do the clone. The github documentation is pretty comprehensive for this.
 
 ## Homebrew
 
