@@ -77,6 +77,8 @@ To install all apps (brew casks) included in `apps.txt` at once, run:
   - `wget`: File retrieval over HTTP/FTP
   - `telnet`: Network utility
   - `tldr`: Simplified man pages with usage examples of many different cli tools
+  - `pyenv`: A tool to manage multiple versions of Python
+
 To install all cli apps (brew formula) included in `cli-apps.txt` at once, run:
 ```zsh
 xargs brew install < cli-apps.txt
