@@ -25,7 +25,7 @@ To clone this repository to my local machine and run the `config.sh` script:
 ```sh
 git clone git@github.com:alakin4/dev-env-setup.git
 cd ~/dev-env-setup
-./config.sh
+sh ./config.sh
 ```
 
 > Note
@@ -69,7 +69,7 @@ You can automate the installation of multiple applications by listing them in a 
 
 To install all apps (brew casks) included in `apps.txt` at once, run:
 ```zsh
-xargs brew install < apps.txt
+   xargs brew install < apps.txt
 ```
 2. CLI Tools. These are the base formula that I typically have installed:
   - `ffmpeg`: Video conversion and trimming
