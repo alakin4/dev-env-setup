@@ -52,12 +52,6 @@ To install Homebrew:
 
 > Note: 
 > Homebrew uses formulae for CLI tools and casks for desktop applications.
->
-> Tip:
-> To get access to other casks that are not listed by default, you might need to run:
->  ```zsh
->    brew tap homebrew/cask-versions
->  ```
 
 ### Installing Multiple Applications with Brew
 You can automate the installation of multiple applications by listing them in a text file and running a single command.
