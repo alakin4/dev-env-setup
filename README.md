@@ -64,7 +64,7 @@ You can automate the installation of multiple applications by listing them in a 
   - `keka`: replacement for archive tools. Its handy with zip files and rar files Archive tool, etc
   - `kap`: Screen recording tool
   - `keycastr`: Shows key presses on screen (useful for demos)
-  - `item2`: Better terminal that the default mac terminal emulator
+  - `iterm2`: Better terminal that the default mac terminal emulator
   - `visual-studio-code`: My favourite code editor
 
 To install all apps (brew casks) included in `apps.txt` at once, run:
