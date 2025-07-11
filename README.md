@@ -78,6 +78,9 @@ To install all apps (brew casks) included in `apps.txt` at once, run:
   - `telnet`: Network utility
   - `tldr`: Simplified man pages with usage examples of many different cli tools
   - `pyenv`: A tool to manage multiple versions of Python
+  - `fzf`: command-line fuzzy finder
+  - `zoxide`: a fast version of z for navigating directories.
+
 
 To install all cli apps (brew formula) included in `cli-apps.txt` at once, run:
 ```zsh
